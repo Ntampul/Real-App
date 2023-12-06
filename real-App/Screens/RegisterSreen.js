@@ -11,4 +11,4 @@ const RegisterSreen = () => {
 
 export default RegisterSreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({})r

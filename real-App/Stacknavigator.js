@@ -9,8 +9,8 @@ const stacknavigator = () => {
   return (
     <NavigationContainer>
     <Stack.Navigator>
-      <Stack.Screen name="login" component={loginscreen} />
-      <Stack.Screen name="Register" component={RegisterSreen} />
+      <Stack.Screen name="Home" component={loginscreen} option= {{ hearderShown: false}}/>
+      <Stack.Screen name="Register" component={RegisterSreen} option= {{ hearderShown: false}} />
     </Stack.Navigator>
   </NavigationContainer>
   )
