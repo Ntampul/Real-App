@@ -12,7 +12,7 @@ const stacknavigator = () => {
         <Stack.Screen
           name="Home"
           component={Loginscreen}
-          
+          r
           options={{ hearderShown: false }}
         />
         <Stack.Screen

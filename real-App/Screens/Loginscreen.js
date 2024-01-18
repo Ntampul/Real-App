@@ -1,51 +1,85 @@
-import { KeyboardAvoidingView, TouchableOpacity, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
-import Icon from 'react-native-vector-icons/FontAwesome5'; // You can replace 'FontAwesome5' with the appropriate icon set
+import React, { useState } from "react";
+import {
+  KeyboardAvoidingView,
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  Pressable,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const Loginscreen = () => {
-  return (
-
-      <View style={{ flex: 1,  alignItems: 'center', backgroundColor:"#101E32"}}>
-      <KeyboardAvoidingView>
-
-             <View style={{ flex: 1,  alignItems: 'center', }}>
-              <Icon name="fingerprint" size={50} color="#7D8243"  /> 
-              <Text style={{color: "white", marginBottom: 35, fontWeight: 800}}> Sign in with touch ID</Text>
-              <Text style={{color: "white", marginBottom: 35, fontWeight: 100 }}> Use your touch ID for faster and easier access to your account. </Text>
-              <TouchableOpacity
-    onPress={() => {
-      // Add your login with email logic here
-    }}
-    style={{
-      backgroundColor: '#7D8243',
-      paddingVertical: 20,
-      paddingHorizontal: 20,
-      borderRadius: 50,
-     
-    }}
-    
-  >
-    <Text style={{ color: 'white', fontSize: 16 }}>Log In with Email</Text>
-  </TouchableOpacity>
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigation =  useNavigation();
   
-  <Text style={{color: "white", marginBottom: 105, fontWeight: 800}}>New user? Sign Up</Text>
-
-  <Icon name="bell" size={50} color="#7D8243" />
-            </View>
-            <View style={{ backgroundColor: "white", borderRadius: 90, width: 500, height: 150,  alignItems: "center" }}>
-        <Text style={{ color: "white", fontWeight: 800, textAlign: "center", color:"#7D8243"}}>
-    help?
-  </Text>
-</View>
-
-
+  return (
+    <View style={{ flex: 1, alignItems: "center", backgroundColor: "#101E32" }}>
+      <KeyboardAvoidingView>
+        <View style={{ flex: 1, alignItems: "center", marginTop: 150 }}>
+          <Text style={{ color: "white", marginBottom: 10, fontWeight: 800 }}>
+            {" "}
+            Sign in
+          </Text>
+          <Text style={{ color: "white", marginBottom: 35, fontWeight: 100 }}>
+            {" "}
+            Sign in to your account{" "}
+          </Text>
           
+          <View>
+            <Text style={{ fontSize: 18, fontWeight: "600", color: "white" }}>
+              Email
+            </Text>
+
+            <TextInput
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+              style={{
+                fontSize: email ? 18 : 18,
+                borderBottomColor: "gray",
+                borderBottomWidth: 1,
+                marginVertical: 10,
+                width: 300,
+              }}
+              placeholderTextColor={"gray"}
+              placeholder="Enter Your Email"
+            />
+          </View>
+
+          <View>
+            <Text style={{ fontSize: 18, fontWeight: "600", color: "white" }}>
+              Password
+            </Text>
+
+            <TextInput
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              style={{
+                fontSize: password ? 18 : 18,
+                borderBottomColor: "gray",
+                borderBottomWidth: 1,
+                marginVertical: 10,
+                width: 300,marginBottom: 50
+              }}
+              placeholderTextColor={"gray"}
+              placeholder="Enter Your Password"
+            />
+          </View>
+        <Pressable onPress={() => navigation.navigate("Register")}  style={{ width: 150, backgroundColor: "gray",  marginRight: "auto", marginLeft: "auto", padding:15, borderRadius: 30,}}>
+          <Text style={{ color:"white",fontSize: 16, fontWeight:"bold", textAlign: "center",}}> LogIn </Text>
+        </Pressable>
+
+         <Pressable >
+          <Text style={{color: "white", marginBottom: 35, fontWeight: 100,marginBottom: 10}}>Don't have an account? Sign Up</Text>
+         </Pressable>
+
+        </View>
       </KeyboardAvoidingView>
     </View>
-    
-  )
-}
+  );
+};
 
-export default Loginscreen
+export default Loginscreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
