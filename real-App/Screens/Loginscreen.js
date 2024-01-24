@@ -16,7 +16,7 @@ const Loginscreen = () => {
   
   return (
     <View style={{ flex: 1, alignItems: "center", backgroundColor: "#101E32" }}>
-      <KeyboardAvoidingView>
+      <ZKeyboardAvoidingView>
         <View style={{ flex: 1, alignItems: "center", marginTop: 150 }}>
           <Text style={{ color: "white", marginBottom: 10, fontWeight: 800 }}>
             {" "}
@@ -75,7 +75,7 @@ const Loginscreen = () => {
          </Pressable>
 
         </View>
-      </KeyboardAvoidingView>
+      </ZKeyboardAvoidingView>
     </View>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react'
 
 const RegisterSreen = () => {
   return (
-    <View>
+    <View style={{ flex: 1, alignItems: "center", backgroundColor: "#101E32" }}>
       <Text>RegisterSreen</Text>
     </View>
   )
