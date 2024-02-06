@@ -16,7 +16,7 @@ const Loginscreen = () => {
   
   return (
     <View style={{ flex: 1, alignItems: "center", backgroundColor: "#101E32" }}>
-      <ZKeyboardAvoidingView>
+      <KeyboardAvoidingView>
         <View style={{ flex: 1, alignItems: "center", marginTop: 150 }}>
           <Text style={{ color: "white", marginBottom: 10, fontWeight: 800 }}>
             {" "}
@@ -66,20 +66,19 @@ const Loginscreen = () => {
               placeholder="Enter Your Password"
             />
           </View>
-        <Pressable onPress={() => navigation.navigate("Register")}  style={{ width: 150, backgroundColor: "gray",  marginRight: "auto", marginLeft: "auto", padding:15, borderRadius: 30,}}>
+        <Pressable  style={{ width: 150, backgroundColor: "gray",  marginRight: "auto", marginLeft: "auto", padding:15, borderRadius: 30,}}>
           <Text style={{ color:"white",fontSize: 16, fontWeight:"bold", textAlign: "center",}}> LogIn </Text>
         </Pressable>
 
          <Pressable >
-          <Text style={{color: "white", marginBottom: 35, fontWeight: 100,marginBottom: 10}}>Don't have an account? Sign Up</Text>
+          <Text  onPress={() => navigation.navigate("Register")} style={{color: "white", marginBottom: 35, fontWeight: 100,marginBottom: 10}}>Don't have an account? Sign Up</Text>
          </Pressable>
 
         </View>
-      </ZKeyboardAvoidingView>
+      </KeyboardAvoidingView>
     </View>
   );
 };
-
 export default Loginscreen;
 
 const styles = StyleSheet.create({});
