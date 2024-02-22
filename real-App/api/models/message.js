@@ -22,3 +22,5 @@ timeStamp:{
 });
 
 const Message = mongoose.model('Message', messageSchema);
+
+module.exports =  Message;

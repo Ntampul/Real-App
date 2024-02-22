@@ -35,3 +35,25 @@ app.listen(port, () => {
 
 
 
+const User = require("./models/user");
+const Message =  require(".models/message");
+
+// endpoint for registrtion of the user
+app.post("/register",(req,res) => {
+    const {name,email,password,image} = req,body;
+
+    //create a new user object
+
+const newUser = new  ({name,email,password,image})
+
+// save the user to the database
+newUUser.save().then(()=> {
+    res.status(200).json({message:"user registered successfully"});
+})
+.catch((err) =>{
+    onslotchange.log("Error registering the user!")
+})
+
+
+})
+
