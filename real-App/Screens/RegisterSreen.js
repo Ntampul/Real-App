@@ -1,13 +1,32 @@
-import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, Pressable} from 'react-native'
-import React, { useState } from 'react'
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  KeyboardAvoidingView,
+  Pressable,
+} from "react-native";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 const RegisterSreen = () => {
-  const [email,setEmail]= useState("");
-  const [name,setName]= useState("");
-  const [password,setPassword]= useState("");
-  const [image,setImage]= useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [image, setImage] = useState("");
   const navigation = useNavigation();
+  const handleRegister = () => {
+    const user = { 
+      name:name,
+      email:email,
+      password:password,
+      image: image
+
+    }
+
+    // send a POST request to the backendn API to register the user
+    axios.post("http://localhost:8000")
+  }
   return (
     <View style={{ flex: 1, alignItems: "center", backgroundColor: "#101E32" }}>
       <KeyboardAvoidingView>
@@ -33,13 +52,13 @@ const RegisterSreen = () => {
                 borderBottomColor: "gray",
                 borderBottomWidth: 1,
                 marginVertical: 10,
-                width: 300
+                width: 300,
               }}
               placeholderTextColor={"gray"}
               placeholder="Enter Your Name"
             />
           </View>
-          
+
           <View>
             <Text style={{ fontSize: 18, fontWeight: "600", color: "white" }}>
               Email
@@ -73,14 +92,13 @@ const RegisterSreen = () => {
                 borderBottomColor: "gray",
                 borderBottomWidth: 1,
                 marginVertical: 10,
-                width: 300
+                width: 300,
               }}
               placeholderTextColor={"gray"}
               placeholder="Password"
             />
           </View>
 
-          
           <View>
             <Text style={{ fontSize: 18, fontWeight: "600", color: "white" }}>
               Image
@@ -94,26 +112,56 @@ const RegisterSreen = () => {
                 borderBottomColor: "gray",
                 borderBottomWidth: 1,
                 marginVertical: 10,
-                width: 300,marginBottom: 50
+                width: 300,
+                marginBottom: 50,
               }}
               placeholderTextColor={"gray"}
               placeholder="Image"
             />
           </View>
-        <Pressable  style={{ width: 150, backgroundColor: "gray",  marginRight: "auto", marginLeft: "auto", padding:15, borderRadius: 30,}}>
-          <Text style={{ color:"white",fontSize: 16, fontWeight:"bold", textAlign: "center",}}> Register</Text>
-        </Pressable>
+          <Pressable
+           onPress= {handleRegister}
+            style={{
+              width: 150,
+              backgroundColor: "gray",
+              marginRight: "auto",
+              marginLeft: "auto",
+              padding: 15,
+              borderRadius: 30,
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 16,
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
+            >
+              {" "}
+              Register
+            </Text>
+          </Pressable>
 
-         <Pressable >
-          <Text  onPress={() => navigation.goBack()} style={{color: "white", marginBottom: 35, fontWeight: 100,marginBottom: 10}}>Already have an account? Sign in</Text>
-         </Pressable>
-
+          <Pressable>
+            <Text
+              onPress={() => navigation.goBack()}
+              style={{
+                color: "white",
+                marginBottom: 35,
+                fontWeight: 100,
+                marginBottom: 10,
+              }}
+            >
+              Already have an account? Sign in
+            </Text>
+          </Pressable>
         </View>
       </KeyboardAvoidingView>
     </View>
-  )
-}
+  );
+};
 
-export default RegisterSreen
+export default RegisterSreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
